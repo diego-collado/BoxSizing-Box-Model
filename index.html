@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Sizing & Box Model</title>
+    <!-- box-sizing es una propiedad CSS para cambiar el modelo de caja por defecto de los navegadores.
+    
+    El ancho de un elemento se altera si se le aplica un borde o un padding. Eso es porque la anchura del elemento que tu
+    especificas con CSS, por defecto no incluye borde ni padding.
+    
+    Un ejemplo: Éste es el efecto que tiene un padding y un borde sobre un elemento de 200px de ancho:
+    
+    <div style="width:200px;
+        padding: 20px;
+        border: 10px solid #ccc;
+        margin: 0 auto;">
+        Lorem ipsum...
+    </div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris…
+    Como podréis comprobar, no mide 200px de ancho, sino 260px. Es decir:
+    200px de ancho inicial, más 20px de padding izquierdo, más 20px de padding derecho, más 10px de borde izquierdo, más
+    10px de borde derecho.
+    
+    Éste es el modo en el que los navegadores tratan los anchos por defecto. Sería el equivalente a box-sizing: content-box;
+    
+    box-sizing: border-box
+    Con border-box, hacemos que el ancho especificado sea el equivalente al ancho total. Es decir:
+    
+    <div style="width: 200px;
+        padding: 20px;
+        border: 10px solid #ccc;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0 auto;">
+        Lorem ipsum...
+    </div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris…
+    Como podréis comprobar, ahora ese elemento exactamente 200px, ni uno más, ni uno menos.
+    
+    Esto es muy útil para elementos fluídos, cuando necesitas que el elemento ocupe (por ejemplo) un 33% del ancho, y si
+    ocupa un píxel más toda la estructura se iría a tomar por culo estropearía.
+    
+    box-sizing: padding-box;
+    Este valor no es tan útil como border-box, pero lo puede ser en ciertos casos. Lo que hace es que la anchura sea la del
+    contenido y el padding (por lo que se le sumará el borde). Es experimental y sólo está implementada en Firefox, por lo
+    que tampoco deberías usarla.
+    
+    <div style="width:200px;
+    	padding: 20px;
+    	border: 10px solid #ccc;
+    	-webkit-box-sizing: padding-box;
+    	-moz-box-sizing: padding-box;
+    	box-sizing: padding-box;
+    	margin: 0 auto;">
+        Lorem ipsum...
+    </div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris…
+    Ahora podréis ver (si entráis con firefox) que el elemento es 220px de ancho (200 entre contenido y padding y 10 de cada
+    lado de borde). 
+
+    https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
+    
+---- > Box Model
+
+    El modelo de cajas o "box model" es seguramente la característica más importante del lenguaje de hojas de estilos CSS,
+ya que condiciona el diseño de todas las páginas web. El modelo de cajas es el comportamiento de CSS que hace que todos
+los elementos de las páginas se representen mediante cajas rectangulares.
+
+Las cajas de una página se crean automáticamente. Cada vez que se inserta una etiqueta HTML, se crea una nueva caja
+rectangular que encierra los contenidos de ese elemento.
+Las cajas de las páginas no son visibles a simple vista porque inicialmente no muestran ningún color de fondo ni ningún
+borde.
+Las partes que componen cada caja y su orden de visualización desde el punto de vista del usuario son las siguientes:
+
+Contenido (content): se trata del contenido HTML del elemento (las palabras de un párrafo, una imagen, el texto de una
+lista de elementos, etc.)
+Relleno (padding): espacio libre opcional existente entre el contenido y el borde.
+Borde (border): línea que encierra completamente el contenido y su relleno.
+Imagen de fondo (background image): imagen que se muestra por detrás del contenido y el espacio de relleno.
+Color de fondo (background color): color que se muestra por detrás del contenido y el espacio de relleno.
+Margen (margin): separación opcional existente entre la caja y el resto de cajas adyacentes.
+El relleno y el margen son transparentes, por lo que en el espacio ocupado por el relleno se muestra el color o imagen
+de fondo (si están definidos) y en el espacio ocupado por el margen se muestra el color o imagen de fondo de su elemento
+padre (si están definidos). Si ningún elemento padre tiene definido un color o imagen de fondo, se muestra el color o
+imagen de fondo de la propia página (si están definidos).
+
+Si una caja define tanto un color como una imagen de fondo, la imagen tiene más prioridad y es la que se visualiza. No
+obstante, si la imagen de fondo no cubre totalmente la caja del elemento o si la imagen tiene zonas transparentes,
+también se visualiza el color de fondo. Combinando imagenes transparentes y colores de fondo se pueden lograr efectos
+gráficos muy interesantes.
+
+Contenido:
+La sección del contenido la principal, pues contiene el “contenido” central a mostrar, es decir, un texto, una imagen, un video, etc. El contenido siempre es lo que queremos mostrarle al usuario y el resto de secciones solo sirven para decorarlo.
+Esta sección se ajusta a la altura y ancho del “contenido” a mostrar, porque entre mayor sean los elementos mostrados, más grande será esta área. Esta sección en muchas ocasiones tiene un color o imagen de fondo para hacerla más atractiva.
+
+Padding:
+El paddin es una separación que existe entre el contenido y el borde, el cual se utiliza para dar una apariencia
+estética más atractiva y que el contenido no este pegado al borde.
+Cabe mencionar que el padding sigue siendo parte de la caja visible, por lo que, si tenemos una imagen o color de fondo,
+este se extenderá a través del padding o relleno. El paddin está delimitado por el borde.
+En esta nueva imagen, podemos ver el mismo ejemplo, solo que esta vez nos hemos centrado en el <div> que contiene todo el contenido del formulario. Observemos que todos los componentes que tenemos en la pantalla están alineados a la caja punteada interna, esto es porque esto es “contenido” y la separación que existe entre las dos cajas punteadas es conocido como padding o relleno. Observemos que el color de fondo (gris claro) se expande a través del contenido y el padding.El padding puede ser establecido con las propiedades padding o (padding-top , padding-bottom , padding-left ,padding-right ).
+
+Border: 
+El borde es una línea que podemos dibujar al final de la caja, esta se utiliza para darle una apariencia estítica a la caja, pues nos permite dibujar una línea de algún color.El border es la última parte visible de la caja y un que outline si es visible, este se pinta fuera de la caja. El border puede ser establecido con las propiedades, border , border-top , border-bottom , borer-left , border-right
+
+Margin:
+El margen es la última sección de Box Model y se puede ver como una separación invisible que ayuda a separar un elemento de otro. Cuando definimos un color o imagen de fondo, este no se propaga a esta sección.
+El margin se puede definir con las propiedades margin , margin-top , margin-bottom , margin-right ,margin-left.
+
+Outline: El outline es una decoración gráfica que hace que los elementos que ganan el foco, que son por lo general los <input>, se coloren como con una ligera aura que los rodea. El outline se establece mediante la propiedad outline y es posible establecerle el grueso del outline, el color y el estilo.
+
+https://es.learnlayout.com/box-model.html
+
+
+-->
+</head>
+
+<body></body>
+
+</html>
